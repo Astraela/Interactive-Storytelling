@@ -18,7 +18,7 @@ public class BoatScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(goingDown){
             transform.localPosition = transform.localPosition + (bottomSize-transform.localPosition)/200f;

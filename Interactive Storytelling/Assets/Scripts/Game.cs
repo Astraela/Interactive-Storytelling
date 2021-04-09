@@ -117,6 +117,10 @@ public class Game : Singleton<Game>
     }
 
     public void Save(){
+        if(Application.platform == RuntimePlatform.WebGLPlayer){
+            Dialogue.Instance.SetDialogue("I'm afraid saving doesn't work on WebGL :(", new List<string>(){"Thanks!",":(","UwU","OwO"});
+            return;
+        }
         var obj = Instantiate(screenshotObj);
         obj.GetComponent<ScreenshotMaker>().target = GameObject.Find("Empty");
         obj.GetComponent<ScreenshotMaker>().Activate();
