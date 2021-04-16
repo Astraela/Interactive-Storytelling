@@ -107,6 +107,7 @@ public class Game : Singleton<Game>
 
     public void Replay(){
         if(interactable){
+            GameObject.FindObjectOfType<Dragger>().Replay();
             inventory.SetActive(true);
             Inventory.Instance.Empty();
             Camera.main.transform.position = new Vector3(-114,-38,-10);

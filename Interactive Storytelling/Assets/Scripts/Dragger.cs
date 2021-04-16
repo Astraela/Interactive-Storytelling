@@ -38,6 +38,8 @@ public class Dragger : Singleton<Dragger>
         mousePos = new Vector3( mousePos.x/Screen.width,mousePos.y/Screen.height,1);
         Vector3 newPos = Camera.main.ViewportToWorldPoint(mousePos);
         
+
+
         if(newPos.x < section.bounds.min.x || newPos.y < section.bounds.min.y ||
             newPos.x > section.bounds.max.x || newPos.y > section.bounds.max.y)
                 return;
@@ -59,6 +61,13 @@ public class Dragger : Singleton<Dragger>
             float pos = max + (step*i);
             itemList[(int)i].position = itemList[(int)i].position - new Vector3(0,0,itemList[(int)i].position.z) + new Vector3(0,0,pos);
         }
+    }
+
+    public void Replay(){
+        foreach(Transform itemt in itemList){
+            Destroy(itemt.gameObject);
+        }
+        Destroy(this);
     }
 
     public void PickUp(Transform obj){
